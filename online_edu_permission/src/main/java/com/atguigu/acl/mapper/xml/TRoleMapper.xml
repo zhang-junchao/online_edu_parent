@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.acl.mapper.TRoleMapper">
+	<select id="queryRoleNameByUserId" resultType="java.lang.String">
+        SELECT
+            role_name
+        FROM
+           t_role a,
+           t_user_role b
+        WHERE
+            a.id = b.role_id
+            AND b.user_id =#{userId}
+    </select>
+    <select id="queryRoleByUserId" resultType="com.atguigu.acl.entity.TRole">
+        SELECT
+            a.*
+        FROM
+            t_role a,
+            t_user_role b
+        WHERE
+            a.id = b.role_id
+            AND b.user_id = #{userId}
+
+    </select>
+
+</mapper>

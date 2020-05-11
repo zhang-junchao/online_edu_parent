@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.acl.mapper.TPermissionMapper">
+
+    <select id="queryPermissionByUserId" resultType="com.atguigu.acl.entity.TPermission">
+        SELECT
+            a.*
+        FROM
+            t_permission a
+            INNER JOIN t_role_permission b ON b.permission_id = a.id
+            INNER JOIN t_user_role c ON c.role_id = b.role_id
+        WHERE
+            1=1
+            <if test="type!=null and type!=''">
+                AND a.type = ${type}
+            </if>
+            AND c.user_id = #{userId}
+    </select>
+</mapper>

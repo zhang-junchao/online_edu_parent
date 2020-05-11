@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: EDU-USER
+  datasource:
+    username: zhangjunchao
+    password: Zhang18235757166.
+    url: jdbc:mysql://192.168.188.100/online_edu?serverTimezone=GMT%2B8&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.jdbc.Driver
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 127.0.0.1:8848
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka/
+server:
+  port: 8150
+swagger2:
+  enable: true
+mybatis-plus:
+  mapper-locations: classpath:com/atguigu/edu/mapper/xml/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+wx:
+  open:
+    # 微信开放平台 appid
+    app_id: wxed9954c01bb89b47
+    # 微信开放平台 appsecret
+    app_secret: a7482517235173ddb4083788de60b90e
+    # 微信开放平台 重定向url（guli.shop需要在微信开放平台配置）
+    redirect_url: http://guli.shop/api/ucenter/wx/callback
+
+
